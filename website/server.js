@@ -1,17 +1,13 @@
-'use strict';
+function sum(a, b) {
+    return a +b;
+}
 
-const express = require('express');
+function subtract(a, b) {
+    return a - b;
+}
 
-// Constants
-const PORT = 3000;
-const HOST = '0.0.0.0';
+function multiply(a, b) {
+    return a * b;
+}
 
-// App
-const app = express();
-app.get('/', (req, res) => {
-  res.send('Hello Node.js Sample!\n');
-});
-
-var port = process.env.PORT||PORT;
-app.listen(port);
-console.log(`Running on http://${HOST}:${PORT}`);
+module.exports = {sum, subtract, multiply};
