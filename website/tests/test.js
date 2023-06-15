@@ -1,12 +1,15 @@
-var assert = require('assert');
+const { sum, subtract, multiply } = require("./calculate")
 
-describe('String', function () {
-    describe('#indexOf', function () {
-        it('should return -1 when the substring is not present', function () {
-            var myString = 'test';
-
-            assert.equal(-1, myString.indexOf('x'));
-            assert.equal(-1, myString.indexOf('y'));
-        });
+describe("Calculate functions Test", () => {
+    test('Addition of two numbers', () => {
+        expect(sum(1, 2)).toBe(3)
+    });
+    
+    test('Subtraction of two numbers', () => {
+        expect(subtract(4, 1)).toBe(3)
+    });
+    
+    test('Multiplication of two numbers', () =>{
+        expect(multiply(1, 3)).toBe(3)
     });
 });
