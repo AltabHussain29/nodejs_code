@@ -1,4 +1,4 @@
-const { sum, subtract, multiply } = require("./calculate")
+const { sum, subtract, multiply } = require("./server")
 
 describe("Calculate functions Test", () => {
     test('Addition of two numbers', () => {
