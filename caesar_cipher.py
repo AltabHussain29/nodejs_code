@@ -21,5 +21,4 @@ while restart == "yes":
     shift = shift % 26
   caesar(start_text=text, shift_amount=shift, cipher_direction=direction)
   restart = input("Do you want to restart the cipher program? Type 'yes' if you want to go again. Otherwise 'no'\n")
-
 print("GoodBye!!")
