@@ -16,7 +16,7 @@ restart = "yes"
 while restart == "yes":
   direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
   text = input("Typoe your message:\n").lower()
-  shift = int(input("Type the shift number:\n")
+  shift = int(input("Type the shift number:\n"))
   if shift > 26:
     shift = shift % 26
   caesar(start_text=text, shift_amount=shift, cipher_direction=direction)
