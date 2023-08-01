@@ -1,4 +1,4 @@
-name: Node.js CI
+name: run python script
 on:
   push:
     branches: [ QA ]
@@ -7,18 +7,21 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       security-events: write
-    strategy:
-      matrix:
-        node-version: [14.x]
+
     steps:
-      - name: Use Node.js ${{ matrix.node-version }}
+      - name: checkout repo content
         uses: actions/checkout@v3
+      - name: setup python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+      - name: execute py script
+        run: python caesar_cipher.py
+        
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v2
-        
       - name: Autobuild
         uses: github/codeql-action/autobuild@v2
-        
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v2
         
