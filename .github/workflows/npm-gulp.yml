@@ -22,4 +22,12 @@ jobs:
         
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v2
-        
+
+      - name: Send email
+        uses: dawidd6/action-send-mail@v3.9.0
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          secure: true
+          username: altablearn@gmail.com
+          
