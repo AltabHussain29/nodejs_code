@@ -24,16 +24,18 @@ jobs:
         uses: github/codeql-action/analyze@v2
 
       - name: Send email
-        uses: dawidd6/action-send-mail@v3.9.0
-        with:
-          server_address: smtp.gmail.com
-          server_port: 465
-          secure: true
-          username: altablearn@gmail.com
-          password: fyturmabxagluiav
-          to: altab_h@pursuitsoftware.biz
-          from: altablearn@gmail.com
-          subject: GIthub Actions Mail Update
-          body: Build job of ${{github.repository}} completed successfully!
-          
+        if: always()
+        shell: pwsh
+        run: |
+          $sendMailMesssageSplat = @{
+            From = 'altablearn@gmail.com'
+            To = 'altab_h@pursuitsoftware.biz'
+            Subject = 'Github Actions - Tosca Test Summary Update'
+            Body = 'Build job of ${{github.actor}} completed successfully!'
+            Priority = 'High'
+            DeliveryNotificationOption = 'OnSuccess', 'OnFailure'
+            SmtpServer = 'smtp.gmail.com'
+            Credential = (New-Object pscredential ("altablearn@gmail.com", (ConvertTo-SecureString -AsPlainText -String "fyturmabxagluiav" -Force)))
+          }
+          Send-MailMessage $sendMailMessageSplat       
           
