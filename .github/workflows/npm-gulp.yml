@@ -27,4 +27,4 @@ jobs:
         if: always()
         shell: pwsh
         run: |
-          Send-MailMessage -To "altab_h@pursuitsoftware.biz" -From "altablearn@gmail.com" -Subject "Github Actions - Tosca Test Summary Update" -Body "Build job of ${{github.actors}} completed successfully!" -Credential (Get-Credential) -SmtpServer "smtp.gmail.com" -Port 587
+          Send-MailMessage -To "altab_h@pursuitsoftware.biz" -From "altablearn@gmail.com" -Subject "Github Actions - Tosca Test Summary Update" -Body "Build job of ${{github.actors}} completed successfully!" -Credential (New-Object pscredential ("altablearn@gmail.com", (ConvertTo-SecureString -AsPlainText -String "fyturmabxagluiav" -Force))) -SmtpServer "smtp.gmail.com" -Port 587
