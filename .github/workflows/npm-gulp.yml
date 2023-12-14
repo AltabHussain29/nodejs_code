@@ -35,6 +35,7 @@ jobs:
             Priority = 'High'
             DeliveryNotificationOption = 'OnSuccess', 'OnFailure'
             SmtpServer = 'smtp.gmail.com'
+            port = 587
             Credential = (New-Object pscredential ("altablearn@gmail.com", (ConvertTo-SecureString -AsPlainText -String "fyturmabxagluiav" -Force)))
           }
           Send-MailMessage $sendMailMessageSplat       
